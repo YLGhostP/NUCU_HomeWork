@@ -31,3 +31,16 @@ pip install -r requirements.txt
 ├── google_mediapipe.py         # [主程式] 純 Google MP 流 (MP Detect + MP Landmark)
 ├── google_hercascade.py        # [主程式] 混合流 (Haar Detect + MP Landmark)
 └── ... (Debug scripts)
+
+
+
+腳本名稱,偵測器 (Detector),特徵提取 (Feature),比對演算法,特點
+recognize_face_recognition.py,HOG / CNN,ResNet (dlib),L2 Distance (歐式距離),"最準確。工業級標準，但速度較慢 (HOG依賴CPU, CNN需GPU)。"
+google_mediapipe.py,MediaPipe (BlazeFace),MediaPipe Landmarker,Cosine Similarity,全 Google 生態。速度快，對轉向/遮擋容忍度尚可，適合行動裝置或即時應用。
+google_hercascade.py,Haar Cascade,MediaPipe Landmarker,Cosine Similarity,極速方案。Haar 偵測極快但誤判率較高，後端接 MP 提取特徵。
+recognize.py,Haar Cascade,MediaPipe Landmarker,L1 Mean Distance,實驗性質。使用絕對差值平均作為距離度量，運算成本最低。
+
+準備資料：將含有人臉的照片放入 data/ (檔名為人名，如 劉毅安.jpg)。
+前處理：執行 python face_detect_and_crop.py 產生裁切圖。
+特徵生成：確認 outputs/crops 下已生成對應的 embeddings.npy (部分腳本整合了生成邏輯，部分需額外執行特徵提取)。
+python recognize_face_recognition.py
