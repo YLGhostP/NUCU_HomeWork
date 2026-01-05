@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 CASCADE_PATH = "models/haarcascade_frontalface_default.xml"
-INPUT_IMAGE = "test_images/測試2.jpg"
+INPUT_IMAGE = "test_images/測試7.jpg"
 OUTPUT_IMAGE = "outputs/visualized/debug_boxes.jpg"
 
 def imread_unicode(path):
@@ -30,7 +30,7 @@ def main():
         minNeighbors=5,
         minSize=(30, 30)
     )
-
+    print(faces)
     if len(faces) == 0:
         print("未偵測到人臉")
         return

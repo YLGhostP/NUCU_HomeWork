@@ -1,25 +1,28 @@
-# --- 基礎科學運算 ---
-numpy>=1.23
-scipy>=1.10
+# === 核心影像處理 ===
+# 用於讀取圖片、繪製方框/文字、以及執行 Haar Cascade 模型
+opencv-python>=4.5.0
 
-# --- 影像處理 ---
-opencv-python>=4.8
+# === 數值運算 ===
+# 用於影像矩陣操作、向量正規化 (L2 norm)、以及讀寫 .npy 資料庫檔案
+numpy>=1.21.0
 
-# --- 人臉偵測（找臉）---
-mediapipe>=0.10
+# === Google MediaPipe ===
+# 用於 google_mediapipe.py 等腳本
+# 提供 BlazeFace (偵測) 與 Face Landmarker (特徵提取) 模型
+mediapipe>=0.10.0
 
-# --- 人臉特徵嵌入（Embedding）---
-# insightface>=0.7.3
-# onnxruntime>=1.16.0
-# face-recognition>=1.3.0 (需要Cmake)
+# === Face Recognition (Dlib base) ===
+# 用於 recognize_face_recognition.py
+# 提供 HOG/CNN 偵測器與 128維度的人臉編碼 (需依賴 dlib)
+face_recognition>=1.3.0
 
+# === 機器學習工具 ===
+# 用於 google_hercascade.py 等腳本
+# 主要使用其中的 cosine_similarity 來計算特徵向量的相似度
+scikit-learn>=1.0.0
 
-# --- 相似度計算 ---
-scikit-learn>=1.3
+# Installing Miniconda
 
-# --- 視覺化 / 工具 ---
-matplotlib>=3.7
-tqdm>=4.66
-
-
-#pip install -r requirements.txt
+# conda create -n face_env python=3.10 -y
+# conda activate face_env
+# conda install -c conda-forge dlib

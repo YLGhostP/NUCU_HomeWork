@@ -7,7 +7,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import mediapipe as mp
 
-MODEL_PATH = r"models\blaze_face_short_range.tflite"
+MODEL_PATH = "models/blaze_face_short_range.tflite"
 
 INPUT_DIR = "data"
 OUTPUT_DIR = "outputs/crops"
