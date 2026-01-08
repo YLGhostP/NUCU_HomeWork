@@ -5,9 +5,16 @@
 ## 🛠️ 環境建置
 
 建議使用 Python 3.8 以上版本。
+因為使用 face_recongition 底層是C++ 會有dlib 這邊使用conda(內建轉譯)並下在 requirements.txt
 
 ### 1. 安裝依賴套件
 ```bash
+--------------"安裝 miniconda"------------
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o .\miniconda.exe
+start /wait "" .\miniconda.exe /S
+del .\miniconda.exe
+
+-----------------------------------------
 pip install -r requirements.txt
 ```
 ### 2. 專案結構

@@ -3,6 +3,7 @@ import re
 import numpy as np
 import cv2
 import face_recognition
+# main 
 
 # =====================
 # 設定區
@@ -16,6 +17,14 @@ EMBEDDING_FILENAME = "embeddings.npy"
 # "cnn"：慢、較準（需 GPU）
 DETECT_MODEL = "hog"
 # =====================
+
+def imwrite_unicode(path, img):
+    ext = os.path.splitext(path)[1]
+    success, encoded_img = cv2.imencode(ext, img)
+    if not success:
+        return False
+    encoded_img.tofile(path)
+    return True
 
 
 def parse_person_name(filename):
@@ -75,7 +84,7 @@ def main():
         # 2️⃣ 存裁切後的人臉圖
         crop_name = f"{os.path.splitext(file)[0]}_face0.jpg"
         crop_path = os.path.join(person_dir, crop_name)
-        cv2.imwrite(crop_path, face_crop)
+        imwrite_unicode(crop_path, face_crop)
 
         # 3️⃣ 計算 embedding
         encodings = face_recognition.face_encodings(

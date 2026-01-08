@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 CASCADE_PATH = "models/haarcascade_frontalface_default.xml"
-INPUT_IMAGE = "test_images/測試7.jpg"
+INPUT_IMAGE = "test_images/測試5.jpg"
 OUTPUT_IMAGE = "outputs/visualized/debug_boxes.jpg"
 
 def imread_unicode(path):
@@ -36,7 +36,7 @@ def main():
         return
 
     for i, (x, y, w, h) in enumerate(faces):
-        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 20)
         cv2.putText(
             img,
             f"Face {i}",

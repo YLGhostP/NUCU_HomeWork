@@ -4,7 +4,7 @@ import numpy as np
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from sklearn.metrics.pairwise import cosine_similarity  # 記得要 import 這個
+from sklearn.metrics.pairwise import cosine_similarity  
 
 # =====================
 # 設定區

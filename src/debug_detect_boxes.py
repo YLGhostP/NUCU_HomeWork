@@ -6,7 +6,7 @@ from mediapipe.tasks.python import vision
 import os
 
 MODEL_DETECTOR = "models/blaze_face_short_range.tflite"
-INPUT_IMAGE = "test_images/測試8.jpg"
+INPUT_IMAGE = "test_images/測試5.jpg"
 OUTPUT_IMAGE = "outputs/visualized/debug_boxes.jpg"
 
 def imread_unicode(path):
@@ -40,7 +40,7 @@ def main():
         x, y = box.origin_x, box.origin_y
         bw, bh = box.width, box.height
 
-        cv2.rectangle(img, (x, y), (x + bw, y + bh), (0, 255, 0), 2)
+        cv2.rectangle(img, (x, y), (x + bw, y + bh), (0, 255, 0), 20)
         cv2.putText(
             img,
             f"Face {i}",

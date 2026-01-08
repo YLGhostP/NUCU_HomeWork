@@ -2,6 +2,8 @@ import os
 import numpy as np
 import face_recognition
 
+#透過 裁切data裡的人物後 針對照片crops做embedding (face_recognition)
+
 # ========= 設定 =========
 CROPS_DIR = "outputs/crops"
 EMBEDDING_FILENAME = "embeddings.npy"

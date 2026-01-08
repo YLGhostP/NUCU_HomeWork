@@ -5,6 +5,8 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
+##透過 裁切data裡的人物後 針對照片crops做embedding (mediapipe)
+
 # ===== 設定 =====
 CROPS_DIR = "outputs/crops"
 MODEL_PATH = "models/face_landmarker.task"
